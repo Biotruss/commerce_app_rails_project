@@ -22,6 +22,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'ruby_parser'
+gem 'nokogiri'
+gem 'omniauth'
+gem 'omniauth-facebook'
+# helps with storing session from the Oauth so the session persists.
+gem 'activerecord-session_store'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
