@@ -28,6 +28,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 # helps with storing session from the Oauth so the session persists.
 gem 'activerecord-session_store'
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
