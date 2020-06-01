@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_175204) do
+ActiveRecord::Schema.define(version: 2020_06_01_180421) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(version: 2020_06_01_175204) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_merchants_on_company_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer "merchant_id", null: false
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchant_id"], name: "index_products_on_merchant_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "merchant_id", null: false
+    t.string "product_name"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchant_id"], name: "index_requests_on_merchant_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -51,4 +71,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_175204) do
   end
 
   add_foreign_key "merchants", "companies"
+  add_foreign_key "products", "merchants"
+  add_foreign_key "requests", "merchants"
+  add_foreign_key "requests", "users"
 end
