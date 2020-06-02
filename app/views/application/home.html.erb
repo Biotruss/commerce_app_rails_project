@@ -1,3 +1,10 @@
 <h2>Welcome to my Commerce App Rails Project</h2>
-<li><%= link_to('Login', new_user_session_path) %></li>
-<li><%= link_to('Sign up', new_user_registration_path) %></li>
+<ul>
+  <% if user_signed_in? %>
+    <p> Navigate with: /products /requests </p>
+
+  <% else %>
+    <li><%= link_to('Login', new_user_session_path) %></li>
+    <li><%= link_to('Sign up', new_user_registration_path) %></li>
+  <% end %>
+</ul>

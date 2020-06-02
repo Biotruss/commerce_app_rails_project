@@ -39,14 +39,14 @@ product_list_2 = [
 ]
 
 alec = Merchant.create(id: 1, name: 'Alec Fitzgerald', company_id: 1)
-  #product_list_1.each do |id, name, merchant_id, description|
-  #  alec.products.create(id: id, name: name, merchant_id: merchant_id, description: description)
-  #end
+  product_list_1.each do |id, name, merchant_id, description|
+    alec.products.create(id: id, name: name, merchant_id: merchant_id, description: description)
+  end
 
 ursula = Merchant.create(id: 2, name: 'Ursula Charlton', company_id: 2)
-  #product_list_2.each do |id, name, merchant_id, description|
-  #  ursula.products.create(id: id, name: name, merchant_id: merchant_id, description: description)
-  #end
+  product_list_2.each do |id, name, merchant_id, description|
+    ursula.products.create(id: id, name: name, merchant_id: merchant_id, description: description)
+  end
 #Merchant.create(id: 3, name: 'Ferne Winter', company_id: 3)
 #Merchant.create(id: 4, name: 'Kylie Francis', company_id: 4)
 
