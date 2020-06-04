@@ -1,0 +1,8 @@
+<h1>Merchant <%= @merchant.name %>'s Page </h1>
+<h2>Company: <%= link_to @company.name, @company %> </h2>
+
+<h3>Products:</h3>
+
+<% @merchant.products.each do |product| %>
+    <li><%= link_to(product.name, product) %></li>
+<% end %><br />

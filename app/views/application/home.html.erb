@@ -1,7 +1,10 @@
 <h2>Welcome to my Commerce App Rails Project</h2>
 <ul>
   <% if user_signed_in? %>
-    <p> Navigate with: /products /requests </p>
+  <p>
+    <a class="btn btn-danger btn-lg" href="/products" role="button">See all</a><br />
+    <a class="btn btn-danger btn-lg" href="/requests/new" role="button">Make a request</a>
+  </p>
 
   <% else %>
     <li><%= link_to('Login', new_user_session_path) %></li>

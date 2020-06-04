@@ -1,0 +1,6 @@
+<h1><%= @company.name %></h1>
+<h3>Merchants:</h3>
+
+<% @company.merchants.each do |merchant| %>
+    <li><%= link_to(merchant.name, merchant) %></li>
+<% end %><br />
