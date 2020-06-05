@@ -1,4 +1,8 @@
 <h1>Request Show Page</h1>
-<h3>You requested: <%= link_to @product.name, @product %>!</h3>
-<h3>Quntity: <%= @request.quantity %>
-<h3>Your merchant: <%= link_to @merchant.name, @merchant  %></h3>
+<h2>Your merchant is: <%= link_to @merchant.name, @merchant  %></h2>
+<h2>You requested: <%= link_to @product.name, @product %>!</h2>
+<h2>Quntity: <%= @request.quantity %></h2>
+<h3>Custom Requests:</h3>
+  <% @request.custom_requests.each do |cr| %>
+    <%= cr.description %><br />
+  <% end %><br />
