@@ -31,6 +31,7 @@ class RequestsController < ApplicationController
     set_request
     set_product
     set_merchant
+    byebug
   end
 
   def edit
@@ -51,7 +52,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:product_id, :quantity)#, custom_request_attributes: [:id, :request_id, :description])
+    params.require(:request).permit(:product_id, :quantity, custom_requests_attributes: [:id, :request_id, :description])
   end
 
   def set_product

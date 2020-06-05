@@ -5,6 +5,11 @@
   <%= f.select :product_id, options_from_collection_for_select(@products, 'id', 'name') %><br />
   <%= f.label :quantity %>:
   <%= f.number_field :quantity %>
+  <h4>Custom Requests:</h4>
+  <%= f.fields_for :custom_requests do |cr| %>
+      <%= cr.label :description %>
+      <%= cr.text_field :description %><br />
+  <% end%>
 
 
 
