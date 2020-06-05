@@ -31,7 +31,6 @@ class RequestsController < ApplicationController
     set_request
     set_product
     set_merchant
-    byebug
   end
 
   def edit
