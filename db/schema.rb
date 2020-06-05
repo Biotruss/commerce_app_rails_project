@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_180421) do
+ActiveRecord::Schema.define(version: 2020_06_05_000722) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "custom_requests", force: :cascade do |t|
+    t.integer "request_id", null: false
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["request_id"], name: "index_custom_requests_on_request_id"
   end
 
   create_table "merchants", force: :cascade do |t|
@@ -38,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_180421) do
   create_table "requests", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "merchant_id", null: false
-    t.string "product_name"
+    t.integer "product_id"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -70,6 +78,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_180421) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "custom_requests", "requests"
   add_foreign_key "merchants", "companies"
   add_foreign_key "products", "merchants"
   add_foreign_key "requests", "merchants"

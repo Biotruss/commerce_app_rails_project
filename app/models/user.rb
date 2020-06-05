@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers:[:facebook]
 
   has_many :requests, dependent: :destroy
-  has_many :merchants, through: :requests
+  has_many :products, through: :requests
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

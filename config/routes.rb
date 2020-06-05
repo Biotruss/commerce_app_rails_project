@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :custom_requests
   resources :products
   resources :requests
   resources :merchants

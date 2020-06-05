@@ -10,6 +10,7 @@ User.destroy_all
 Company.destroy_all
 Merchant.destroy_all
 Product.destroy_all
+Request.destroy_all
 
 kenny = User.create(id: 1, name: "Kenny", email: "kenny@example.com", password: "password")
 simon = User.create(id: 2, name: "Simon", email: "simon@example.com", password: "password")

@@ -1,0 +1,2 @@
+module CustomRequestsHelper
+end

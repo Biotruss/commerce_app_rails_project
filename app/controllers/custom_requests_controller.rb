@@ -1,0 +1,2 @@
+class CustomRequestsController < ApplicationController
+end

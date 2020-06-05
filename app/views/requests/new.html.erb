@@ -1,0 +1,12 @@
+<h1>Make a Request!</h1>
+
+<%= form_with(model: @request, local: true) do |f| %>
+  <%= f.label :product %>:
+  <%= f.select :product_id, options_from_collection_for_select(@products, 'id', 'name') %><br />
+  <%= f.label :quantity %>:
+  <%= f.number_field :quantity %>
+
+
+
+  <%= f.submit %>
+<% end %><br />
