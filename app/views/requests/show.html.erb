@@ -1,4 +1,4 @@
 <h1>Request Show Page</h1>
-<h3>You requested: <%= @product.name %>!</h3>
+<h3>You requested: <%= link_to @product.name, @product %>!</h3>
 <h3>Quntity: <%= @request.quantity %>
-<h3>Your merchant: <%= @merchant.name  %></h3>
+<h3>Your merchant: <%= link_to @merchant.name, @merchant  %></h3>
