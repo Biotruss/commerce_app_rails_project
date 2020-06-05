@@ -1,0 +1,7 @@
+<h1>Here are all your requests <%= current_user.name %></h1>
+
+<ul>
+    <% @requests.each do |request| %>
+        <li><%= link_to(@product = Product.find(request.product_id).name, request) %></li>
+    <% end %>
+</ul>

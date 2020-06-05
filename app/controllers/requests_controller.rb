@@ -6,6 +6,7 @@ class RequestsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @requests = current_user.requests
   end
 
   def new
@@ -18,7 +19,6 @@ class RequestsController < ApplicationController
     @request = current_user.requests.build(request_params)
     set_product
     assign_merchant
-    byebug
     if @request.save
       redirect_to request_path(@request)
     else
@@ -28,6 +28,9 @@ class RequestsController < ApplicationController
   end
 
   def show
+    set_request
+    set_product
+    set_merchant
   end
 
   def edit
@@ -55,8 +58,11 @@ class RequestsController < ApplicationController
     @product = Product.find(@request.product_id)
   end
 
+  def set_merchant
+    @merchant = Merchant.find(@request.merchant_id)
+  end
+
   def assign_merchant
     @request.merchant_id = @product.merchant.id
   end
-
 end
