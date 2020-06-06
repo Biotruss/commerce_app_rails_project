@@ -34,9 +34,20 @@ class RequestsController < ApplicationController
   end
 
   def edit
+    set_request
+    if !@request
+      redirect_to requests_path
+    else
+      @products = Product.all
+    end
   end
 
   def update
+    set_request
+    set_product
+    assign_merchant
+    @request.update(request_params)
+    redirect_to @request
   end
 
   def destroy

@@ -6,3 +6,7 @@
   <% @request.custom_requests.each do |cr| %>
     <%= cr.description %><br />
   <% end %><br />
+
+<p>
+  <a class="btn btn-danger btn-lg" href="/requests/<%= @request.id %>/edit" role="button">Edit Your Request?</a><br />
+</p>
