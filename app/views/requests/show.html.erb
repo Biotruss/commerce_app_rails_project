@@ -4,7 +4,7 @@
 <h2>Quntity: <%= @request.quantity %></h2>
 <h3>Custom Requests:</h3>
   <% @request.custom_requests.each do |cr| %>
-    <%= cr.description %><br />
+    <%= link_to(cr.description, request_custom_request_path(@request, cr)) %><br />
   <% end %><br />
 
 <p>

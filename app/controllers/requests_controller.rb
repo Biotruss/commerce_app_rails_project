@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
   #t.integer "user_id", null: false
   #t.integer "merchant_id", null: false
-  #t.string "product_name"
+  #t.string "product_id"
   #t.integer "quantity"
   before_action :authenticate_user!
 

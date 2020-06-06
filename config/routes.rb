@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :custom_requests
   resources :products
   resources :requests do
-    resources :custom_requests
+    resources :custom_requests, only: [:index, :show, :new, :create]
   end
   patch 'requests/:id', to: "requests#update"
   resources :merchants
