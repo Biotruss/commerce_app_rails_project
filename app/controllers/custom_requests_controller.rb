@@ -36,6 +36,23 @@ class CustomRequestsController < ApplicationController
     end
   end
 
+  def edit
+    set_request
+    set_custom_request
+    if !@custom_request
+      redirect_to request_custom_request_path(@request, @custom_request)
+    else
+      @products = Product.all
+    end
+  end
+
+  def update
+    set_custom_request
+    set_request
+    @custom_request.update(custom_request_params)
+    redirect_to request_custom_request_path(@request, @custom_request)
+  end
+
   private
 
   def set_request

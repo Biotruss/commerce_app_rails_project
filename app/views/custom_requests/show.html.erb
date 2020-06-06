@@ -2,4 +2,4 @@
 
 <h3><%= @custom_request.description %></h3>
 <p>Click <%= link_to("here", request_path(@request)) %> to go back to request page for this custom request</p>
-<%#= link_to(@custom_request.description, new_request_custom_request_path(@request, @custom_request)) %><br />
+<p>Would you like to <%= link_to("edit", edit_request_custom_request_path(@request, @custom_request)) %> this custom request</p>
