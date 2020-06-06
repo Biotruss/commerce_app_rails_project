@@ -1,0 +1,8 @@
+<h1>Make a new custom request for <%= @request.product.name %></h1>
+
+<%= form_with model: [@request, @custom_request], local: true do |f| %>
+    <%= f.label :description %>
+    <%= f.text_field :description %><br />
+
+    <%= f.submit %>
+<% end%>

@@ -6,7 +6,7 @@
   <% @request.custom_requests.each do |cr| %>
     <%= link_to(cr.description, request_custom_request_path(@request, cr)) %><br />
   <% end %><br />
-
+  <%= link_to("New Request", new_request_custom_request_path(@request, @custom_request)) %><br />
 <p>
   <a class="btn btn-danger btn-lg" href="/requests/<%= @request.id %>/edit" role="button">Edit Your Request?</a><br />
 </p>

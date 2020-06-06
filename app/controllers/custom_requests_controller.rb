@@ -3,8 +3,8 @@ class CustomRequestsController < ApplicationController
 
     def new
       if params[:request_id]
-        @custom_request = @request.custom_requests.build
         set_request
+        @custom_request = @request.custom_requests.build
       else
         @custom_request = CustomRequest.new
       end
@@ -12,8 +12,8 @@ class CustomRequestsController < ApplicationController
 
     def create
       if params[:request_id]
-        @custom_request = @request.custom_requests.build(custom_request_params)
         set_request
+        @custom_request = @request.custom_requests.build(custom_request_params)
       else
         @custom_request = CustomRequest.new(custom_request_params)
       end
@@ -39,7 +39,7 @@ class CustomRequestsController < ApplicationController
   private
 
   def set_request
-    @request = Request.find(@custom_request.request_id)
+    @request = Request.find_by_id(params[:request_id])
   end
 
   def set_custom_request
