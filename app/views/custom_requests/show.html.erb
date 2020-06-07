@@ -1,5 +1,6 @@
-<h1>Here is your request for <%= @request.product.name %></h1>
+<h1>Here is your custom request for <%= @request.product.name %></h1>
 
 <h3><%= @custom_request.description %></h3>
 <p>Click <%= link_to("here", request_path(@request)) %> to go back to request page for this custom request</p>
 <p>Would you like to <%= link_to("edit", edit_request_custom_request_path(@request, @custom_request)) %> this custom request</p>
+<p>Would you like to <%= link_to 'delete', request_custom_request_path(@request, @custom_request), method: :delete, data: {confirm: 'Are you sure?'} %> this Custom Request</p>

@@ -51,8 +51,9 @@ class RequestsController < ApplicationController
   end
 
   def destroy
+    set_request
     @request.destroy
-    redirect_to user_path(current_user)
+    redirect_to requests_path(current_user)
   end
 
   private

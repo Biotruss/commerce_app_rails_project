@@ -18,13 +18,9 @@ class CustomRequestsController < ApplicationController
         @custom_request = CustomRequest.new(custom_request_params)
       end
       if @custom_request.save
-        if @request
-          redirect_to request_custom_request_path(@request, @custom_request)
-        else
-          redirect_to @custom_request
-        end
+        redirect_to request_custom_request_path(@request, @custom_request)
       else
-        render :new
+        redirect_to new_request_custom_request_path(@request, @custom_request)
       end
     end
 
@@ -51,6 +47,13 @@ class CustomRequestsController < ApplicationController
     set_request
     @custom_request.update(custom_request_params)
     redirect_to request_custom_request_path(@request, @custom_request)
+  end
+
+  def destroy
+    set_request
+    set_custom_request
+    @custom_request.destroy
+    redirect_to request_path(@request)
   end
 
   private
