@@ -2,6 +2,16 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-6">
+          <% if !params[:merchant].blank? %>
+            <% @products = Product.where(merchant: params[:merchant]) %>
+          <% end %>
+          <div>
+            <h3>Filter Products:</h3>
+            <%= form_tag("/products", method: "get") do %>
+              <%= select_tag "merchant", options_from_collection_for_select(@merchants, "id", "name"), include_blank: true %>
+              <%= submit_tag "Filter" %>
+            <% end %>
+          </div>
             <ul>
                 <% @products.each do |product| %>
                     <li><%= link_to(product.name, product) %></li>
