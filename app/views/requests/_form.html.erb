@@ -2,12 +2,12 @@
   <%= f.label :product %>:
   <%= f.select :product_id, options_from_collection_for_select(@products, 'id', 'name') %><br />
   <%= f.label :quantity %>:
-  <%= f.number_field :quantity %>
+  <%= f.number_field :quantity, placeholder: @request.errors[:quantity].to_sentence %>
 
   <h4>Custom Requests:</h4>
   <%= f.fields_for :custom_requests do |cr| %>
       <%= cr.label :description %>
-      <%= cr.text_field :description %><br />
+      <%= cr.text_field :description, placeholder: @request.errors[:'custom_requests.description'].to_sentence %><br />
   <% end%>
 
   <%= f.submit %>
