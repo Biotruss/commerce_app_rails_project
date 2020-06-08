@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :merchants, only: [:show]
   resources :companies, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  devise_for :users, controllers: {omniauth_callbacks: 'omniauth'}
+  devise_for :users, controllers: {registrations: 'registrations', omniauth_callbacks: 'omniauth'}
 
   resources :users, only: [:show]
 
