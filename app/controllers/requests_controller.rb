@@ -13,7 +13,6 @@ class RequestsController < ApplicationController
     @products = Product.all
     @request = current_user.requests.build
     3.times { @request.custom_requests.build }
-    binding.pry
   end
 
   def create
