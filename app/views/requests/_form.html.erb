@@ -7,7 +7,7 @@
   <h4>Custom Requests:</h4>
   <%= f.fields_for :custom_requests do |cr| %>
       <%= cr.label :description %>
-      <%= cr.text_field :description#, placeholder: @request.errors[:'custom_requests.description'].to_sentence %><br />
+      <%= cr.text_field :description, placeholder: @request.errors[:'custom_requests.description'].to_sentence %><br />
   <% end%>
 
   <%= f.submit %>

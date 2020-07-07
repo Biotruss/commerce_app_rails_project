@@ -9,9 +9,6 @@ class User < ApplicationRecord
   has_many :products, through: :requests
   has_many :custom_requests, through: :requests
 
-  #missing many to many relationship
-  #has_many :products, thought: :requests
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
