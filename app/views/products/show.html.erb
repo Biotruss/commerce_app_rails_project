@@ -1,4 +1,13 @@
 <h1>Product Show Page</h1>
 <h3>Merchant: <%= link_to @merchant.name, @merchant %></h3>
 <h2>Product: <%= @product.name %></h2>
-<p>Description: <%= @product.description %>
+<p>Description: <%= @product.description %></p>
+
+<p>All current requests by users: </p>
+  </div>
+    <ul>
+        <% @users.each do |user| %>
+            <p><%= user.name %></p>
+        <% end %>
+    </ul>
+  </div><br/>

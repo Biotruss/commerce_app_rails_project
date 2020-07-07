@@ -10,12 +10,22 @@ class ProductsController < ApplicationController
 
   def show
     set_product
+    set_users
     @merchant = @product.merchant
   end
 
   private
   def set_merchant
     @merchant = Merchant.find_by_id(params[:merchant_id])
+  end
+
+  def set_users
+    @users = []
+    @product.requests.each do |req|
+      @id = req.user_id
+      @user = User.find_by(id: @id)
+      @users << @user
+    end
   end
 
   def set_product
