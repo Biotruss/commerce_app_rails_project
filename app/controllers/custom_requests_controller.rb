@@ -1,9 +1,11 @@
 class CustomRequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_request
+  before_action :set_custom_request, only: [:show, :edit, :update, :destroy]
 
     def new
       if params[:request_id]
-        set_request
+        #set_request
         @custom_request = @request.custom_requests.build
       else
         @custom_request = CustomRequest.new
@@ -12,7 +14,7 @@ class CustomRequestsController < ApplicationController
 
     def create
       if params[:request_id]
-        set_request
+        #set_request
         @custom_request = @request.custom_requests.build(custom_request_params)
       else
         @custom_request = CustomRequest.new(custom_request_params)
@@ -20,21 +22,21 @@ class CustomRequestsController < ApplicationController
       if @custom_request.save
         redirect_to request_custom_request_path(@request, @custom_request)
       else
-        redirect_to new_request_custom_request_path(@request, @custom_request)
+        render :new
       end
     end
 
 
   def show
     if params[:request_id]
-      set_custom_request
-      set_request
+      #set_custom_request
+      #set_request
     end
   end
 
   def edit
-    set_request
-    set_custom_request
+    #set_request
+    #set_custom_request
     if !@custom_request
       redirect_to request_custom_request_path(@request, @custom_request)
     else
@@ -43,15 +45,15 @@ class CustomRequestsController < ApplicationController
   end
 
   def update
-    set_custom_request
-    set_request
+    #set_custom_request
+    #set_request
     @custom_request.update(custom_request_params)
     redirect_to request_custom_request_path(@request, @custom_request)
   end
 
   def destroy
-    set_request
-    set_custom_request
+    #set_request
+    #set_custom_request
     @custom_request.destroy
     redirect_to request_path(@request)
   end

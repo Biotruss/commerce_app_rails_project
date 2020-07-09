@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :requests, dependent: :destroy
   has_many :products, through: :requests
+
   has_many :custom_requests, through: :requests
 
   def self.from_omniauth(auth)

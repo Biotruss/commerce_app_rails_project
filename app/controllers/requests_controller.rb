@@ -1,9 +1,6 @@
 class RequestsController < ApplicationController
-  #t.integer "user_id", null: false
-  #t.integer "merchant_id", null: false
-  #t.string "product_id"
-  #t.integer "quantity"
   before_action :authenticate_user!
+  before_action :set_request, only: [:show, :edit, :update, :destroy]
 
   def index
     @requests = current_user.requests
@@ -28,13 +25,13 @@ class RequestsController < ApplicationController
   end
 
   def show
-    set_request
+    #set_request
     set_product
     set_merchant
   end
 
   def edit
-    set_request
+    #set_request
     if !@request
       redirect_to requests_path
     else
@@ -43,7 +40,7 @@ class RequestsController < ApplicationController
   end
 
   def update
-    set_request
+    #set_request
     set_product
     assign_merchant
     @request.update(request_params)
@@ -51,7 +48,7 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-    set_request
+    #set_request
     @request.destroy
     redirect_to requests_path(current_user)
   end

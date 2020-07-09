@@ -3,6 +3,9 @@ class ProductsController < ApplicationController
     @merchants = Merchant.all
     if !params[:merchant_id].blank?
       @products = Product.where(merchant_id: params[:merchant_id])
+    elsif !params[:name].blank?
+      @name = params[:name]
+      @products = Product.named(@name)
     else
       @products = Product.all
     end
@@ -15,17 +18,13 @@ class ProductsController < ApplicationController
   end
 
   private
+
   def set_merchant
     @merchant = Merchant.find_by_id(params[:merchant_id])
   end
 
   def set_users
-    @users = []
-    @product.requests.each do |req|
-      @id = req.user_id
-      @user = User.find_by(id: @id)
-      @users << @user
-    end
+    @users = @product.users.uniq
   end
 
   def set_product
